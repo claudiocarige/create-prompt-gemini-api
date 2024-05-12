@@ -55,4 +55,9 @@ public class RootController {
     public ResponseEntity<String> getRoot(@RequestBody GeminiRequest geminiRequest) throws JsonProcessingException {
         return ResponseEntity.ok().body(geminiService.generate(geminiRequest));
     }
+
+    @GetMapping
+    public String teste(){
+        return "teste";
+    }
 }
