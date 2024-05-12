@@ -76,7 +76,7 @@ gemini.url = ${GOOGLE_API_KEY}
 ​
 | route               | description                                          
 |----------------------|-----------------------------------------------------
-|<br> <kbd>POST / /api/v1/root/criar-prompt</kbd>     | retorna um prompt [request details](#post-auth-detail)
+|<br> <kbd>POST / /api/v1/root/criar-prompt</kbd>     | retorna um prompt [request details]
 
 <h3>POST /api/v1/root/criar-prompt</h3>
 
