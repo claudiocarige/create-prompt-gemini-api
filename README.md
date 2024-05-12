@@ -2,14 +2,18 @@
 
 <p align="center">
  <a href="#tech">Tecnologias</a> • 
- <a href="#started">Getting Started</a> • 
-  <a href="#routes">API Endpoints</a> •
- <a href="#colab">Collaborators</a> •
- <a href="#contribute">Contribute</a>
+ <a href="#started">Começando</a> • 
+ <a href="#routes">API Endpoints</a> •
+
 </p>
 
-<p align="center">
-    <b>Simple description of what your project do or how to use it.</b>
+<p align="left">
+    <b>
+        O projeto foi criado com o intuito de ajudar aos usuários do Gemini AI
+        na criação de prompts bem estruturados usando a própria tecnologia do Gemini AI
+        facilitando e melhorando a comunicação e eficiência das respostas do modelo Gemini.
+        Com esse prompt gerado pela API <span style="color:blue;">Criador de Prompt </span> você pode coeçar a usar o Gemini AI com mais eficiência
+    </b>
 </p>
 
 <h2 id="tech">💻 Tecnologias</h2>
@@ -65,15 +69,6 @@ No arquivo application.properties você insere:
 
 ```application.properties
 gemini.url = ${GOOGLE_API_KEY}
-```
-
-<h3>Starting</h3>
-
-How to start your project
-
-```bash
-cd project-name
-npm some-command-to-run
 ```
 
 <h2 id="routes">📍 API Endpoints</h2>
