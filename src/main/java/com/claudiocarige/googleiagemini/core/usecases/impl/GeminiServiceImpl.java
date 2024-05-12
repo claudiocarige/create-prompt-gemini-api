@@ -5,6 +5,7 @@ import com.claudiocarige.googleiagemini.core.usecases.interfaces.GeminiService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -17,21 +18,24 @@ import java.util.List;
 @Service
 public class GeminiServiceImpl implements GeminiService {
 
-    private final RestTemplate restTemplate = new RestTemplate();
-    private final HttpHeaders headers = new HttpHeaders();
-    private final List<String> stringList = new ArrayList<>();
-    private final List<String> stringRole = new ArrayList<>();
+    private final RestTemplate restTemplate;
 
-    @Value("${gemini.url}")
-    private String google_key;
+    private final HttpHeaders headers;
+    private List<String> stringList = new ArrayList<>();
+    private List<String> stringRole = new ArrayList<>();
 
-    public GeminiServiceImpl(){
+    @Value("${gemini.token}")
+    private String googleKey;
+
+    public GeminiServiceImpl(RestTemplate restTemplate, HttpHeaders headers) {
+        this.restTemplate = restTemplate;
+        this.headers = headers;
         stringAdd();
     }
 
     public String generate(GeminiRequest geminiRequest) throws JsonProcessingException {
 
-        String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key="+google_key;
+        String url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key="+googleKey;
         stringList.add("com base nas informções anteriores, crie um prompt que solicite ao modelo de linguagem um(a) "
                         + geminiRequest.tipo()+" sobre o(a) " + geminiRequest.sobre());
         Root request = criarObjectRoot(geminiRequest);
